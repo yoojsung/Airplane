@@ -1,12 +1,16 @@
 package model;
 
 public abstract class GameObject {
-	int x;
-	int y;
+	private int x;
+	private int y;
+	private final int WIDTH;
+	private final int HEIGHT;
 	
-	public GameObject(int x, int y) {
+	public GameObject(int x, int y, int width, int height) {
 		this.x = x;
 		this.y = y;
+		this.WIDTH = width;
+		this.HEIGHT = height;
 	}
 	
 	public int getX() {
@@ -15,6 +19,14 @@ public abstract class GameObject {
 	
 	public int getY() {
 		return y;
+	}
+
+	public int getWidth() {
+		return WIDTH;
+	}
+	
+	public int getHeight() {
+		return HEIGHT;
 	}
 	
 	public void moveX(int dx) {

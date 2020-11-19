@@ -1,6 +1,6 @@
 package controller;
 
-import model.Model;
+import model.*;
 import view.View;
 
 import java.util.LinkedList;
@@ -11,14 +11,16 @@ public class Controller {
     private BlockingQueue<Message> queue;
     private View view; // Direct reference to view
     private Model model; // Direct reference to model
+    private Airplane airplane;
     private GameInfo gameInfo; // Direct reference to the state of the Game/Application
 
     private List<Valve> valves = new LinkedList<Valve>();
 
-    public Controller(View view, Model model, BlockingQueue<Message> queue) {
+    public Controller(View view, Airplane airplane, BlockingQueue<Message> queue) {
         this.view = view;
-        this.model = model;
+        this.airplane = airplane;
         this.queue = queue;
+        view.init(airplane);
         valves.add(new DoNewGameValve());
         valves.add(new DoHitValve());
     }
