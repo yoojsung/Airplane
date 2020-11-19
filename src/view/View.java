@@ -10,7 +10,6 @@ import java.awt.geom.RoundRectangle2D;
 import java.util.concurrent.BlockingQueue;
 
 public class View extends JFrame {
-    //private JFrame gameFrame;
     private Airplane airplane;
     private BlockingQueue<Message> queue;
 
@@ -23,7 +22,6 @@ public class View extends JFrame {
     }
     private View(BlockingQueue<Message> queue) {
         this.queue = queue;
-       
         // TODO:
         // you should initalize JFrame and show it,
         // JFrame should be able to add Messages to queue
@@ -46,6 +44,7 @@ public class View extends JFrame {
         setLocationRelativeTo(null);
 		setResizable(false);
         setLayout(new FlowLayout());
+        setFocusable(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
     }
@@ -78,4 +77,5 @@ public class View extends JFrame {
         // TODO: clear all the resources
         // for example, dispose();
     }
+   
 }
